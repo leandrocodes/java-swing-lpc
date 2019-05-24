@@ -69,7 +69,7 @@ class Tela {
                new CadastroProduto();
             }
             if (e.getSource() == jBtnConProd) {
-                //new ConsultaFuncionario();
+               new ConsultaProduto();
             }
             if (e.getSource() == jBtnSair) {
                 System.exit(0);
