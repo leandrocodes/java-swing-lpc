@@ -47,6 +47,8 @@ public class CadastroProduto extends JFrame {
 
         b1 = new JButton("Cadastrar");
         b2 = new JButton("Fechar");
+        b1.addActionListener(new Evento());
+        b2.addActionListener(new Evento());
 
         Container c = getContentPane();
         c.setLayout(new GridLayout(8, 2));
@@ -89,6 +91,60 @@ public class CadastroProduto extends JFrame {
                 System.exit(0);
             }
         });
+    }
+
+    public class Evento implements ActionListener {
+
+        String url = "jdbc:postgresql://localhost:5432/mercadinho";
+        String driver = "org.postgresql.Driver";
+        String login = "postgres";
+        String passwd = "root";
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == b1) {
+                String url = "jdbc:postgresql://localhost:5432/mercadinho";
+                Connection con;
+                String query = "INSERT INTO produto ("
+                        + " codigo_produto, valor_pago, valor_venda, qtde_estoque, unidade_medida, categoria, nome_produto"
+                        + ") VALUES ('"
+                        + t1.getText().trim() +  " ', '" + t3.getText().trim() + " ', '"
+                        + t4.getText().trim() + " ', '" + t5.getText().trim() + " ', '" + t6.getText().trim() + " ', '" + t7.getText().trim() + " ', '" + t2.getText().trim() + " ')";
+                Statement stmt;
+                try {
+                    Class.forName("org.postgresql.Driver");
+                } catch (java.lang.ClassNotFoundException e1) {
+                    System.err.print("ClassNotFoundException: ");
+                    System.err.println(e1.getMessage());
+                }
+
+                try {
+                    con = DriverManager.getConnection(url, "postgres", "root");
+                    stmt = con.createStatement();
+                    int rs = stmt.executeUpdate(query);
+                    JOptionPane.showMessageDialog(null, "Inserção do produto feita com sucesso!");
+
+                    stmt.close();
+                    con.close();
+                } catch (SQLException ex) {
+                    System.err.print("SQLException: ");
+                    System.err.println(ex.getMessage());
+                }
+
+            } // Fim do Bot�o 1
+            else if (e.getSource() == b2) {
+                /* 0  = YES_OPTION
+		               1  = NO_OPTION
+		               2  = CANCEL_OPTION
+                 */
+                int x = JOptionPane.showConfirmDialog(null, "Deseja fechar a janela?");
+                if (x == JOptionPane.YES_OPTION) {
+                    JOptionPane.showMessageDialog(null, "Fechando a Janela de Cadastro de Funcionario");
+                    dispose();
+                }
+            }
+        }
+
     }
 
 }
