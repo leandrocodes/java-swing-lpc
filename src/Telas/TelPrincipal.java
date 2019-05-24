@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package PacotePrincipal;
+package Telas;
 
 import javax.swing.*;
 import java.awt.*;
@@ -20,6 +20,12 @@ public class TelPrincipal {
 
     public static void main(String args[]) {
 
+        try {
+            UIManager.setLookAndFeel(new MaterialLookAndFeel());
+        } catch (UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
         new Tela();
     }
 
@@ -35,12 +41,6 @@ class Tela {
 
     Tela() {
 
-        try {
-            UIManager.setLookAndFeel(new MaterialLookAndFeel());
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
-
         MaterialUIMovement.add(jBtnCadProd, MaterialColors.DARKLY_RED);
         MaterialUIMovement.add(jBtnConProd, MaterialColors.RED_100);
         MaterialUIMovement.add(jBtnSair, MaterialColors.RED_100);
@@ -54,6 +54,7 @@ class Tela {
         frame.setMinimumSize(new Dimension(600, 400));
         frame.setBounds(150, 200, 200, 150);
         frame.setVisible(true);
+        
 
         jBtnCadProd.addActionListener(new FuncBot());
         jBtnConProd.addActionListener(new FuncBot());
@@ -65,7 +66,7 @@ class Tela {
 
         public void actionPerformed(ActionEvent e) {
             if (e.getSource() == jBtnCadProd) {
-                //new CadastraFuncionario();
+               new CadastroProduto();
             }
             if (e.getSource() == jBtnConProd) {
                 //new ConsultaFuncionario();
