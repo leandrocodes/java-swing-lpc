@@ -23,11 +23,11 @@ public class CadastroProduto extends JFrame {
     private JButton b1, b2, b3, b4;
 
     public CadastroProduto() {
-        try {
-            UIManager.setLookAndFeel(new MaterialLookAndFeel());
-        } catch (UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            UIManager.setLookAndFeel(new MaterialLookAndFeel());
+//        } catch (UnsupportedLookAndFeelException e) {
+//            e.printStackTrace();
+//        }
 
         l1 = new JLabel("Código: ");
         l2 = new JLabel("Nome: ");
@@ -108,7 +108,7 @@ public class CadastroProduto extends JFrame {
                 String query = "INSERT INTO produto ("
                         + " codigo_produto, valor_pago, valor_venda, qtde_estoque, unidade_medida, categoria, nome_produto"
                         + ") VALUES ('"
-                        + t1.getText().trim() +  " ', '" + t3.getText().trim() + " ', '"
+                        + t1.getText().trim() + " ', '" + t3.getText().trim() + " ', '"
                         + t4.getText().trim() + " ', '" + t5.getText().trim() + " ', '" + t6.getText().trim() + " ', '" + t7.getText().trim() + " ', '" + t2.getText().trim() + " ')";
                 Statement stmt;
                 try {

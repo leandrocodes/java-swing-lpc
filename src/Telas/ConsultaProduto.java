@@ -8,13 +8,7 @@ package Telas;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.io.*;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.sql.*;
-
 
 /**
  *
@@ -96,7 +90,7 @@ public class ConsultaProduto extends JFrame {
             String lista = "", filtro = "";
 
             if (jTxtValorVenda.getText().equals("") == false) {
-                filtro += "where valor_venda = '" +(jTxtValorVenda.getText())+ "'";
+                filtro += "where valor_venda = '" + (jTxtValorVenda.getText()) + "'";
             }
 
             try {
