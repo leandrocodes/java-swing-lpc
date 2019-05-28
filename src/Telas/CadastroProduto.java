@@ -50,33 +50,40 @@ public class CadastroProduto extends JFrame {
         b1.addActionListener(new Evento());
         b2.addActionListener(new Evento());
 
-        Container c = getContentPane();
-        c.setLayout(new GridLayout(8, 2));
+        Container frame = getContentPane();
+        JPanel panel = new JPanel();
+        
+        panel.setLayout(new GridLayout(8, 2));
+        panel.setBounds(0, 0, 500, 300);
+        Color lightBlue = new Color(179, 229, 252);
+        panel.setBackground(lightBlue);
 
-        c.add(l1);
-        c.add(t1);
+        panel.add(l1);
+        panel.add(t1);
 
-        c.add(l2);
-        c.add(t2);
+        panel.add(l2);
+        panel.add(t2);
 
-        c.add(l3);
-        c.add(t3);
+        panel.add(l3);
+        panel.add(t3);
 
-        c.add(l4);
-        c.add(t4);
+        panel.add(l4);
+        panel.add(t4);
 
-        c.add(l5);
-        c.add(t5);
+        panel.add(l5);
+        panel.add(t5);
 
-        c.add(l6);
-        c.add(t6);
+        panel.add(l6);
+        panel.add(t6);
 
-        c.add(l7);
-        c.add(t7);
+        panel.add(l7);
+        panel.add(t7);
 
-        c.add(b1);
-        c.add(b2);
+        panel.add(b1);
+        panel.add(b2);
 
+        frame.add(panel);
+        
         setSize(500, 300);
         setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);

@@ -14,7 +14,6 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
-
 /**
  *
  * @author pixel
@@ -56,7 +55,7 @@ class Tela {
         panel.setLayout(null);
 
         jBtnCadProd.setBounds(20, 50, 160, 60);
-        Color btn = new Color(130, 217, 255);
+        Color btn = new Color(179, 229, 252);
         Color bord = new Color(63, 81, 181);
         jBtnCadProd.setBackground(btn);
         jBtnCadProd.setForeground(Color.black);
