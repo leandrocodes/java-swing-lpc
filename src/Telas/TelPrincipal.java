@@ -9,9 +9,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-import mdlaf.*;
-import mdlaf.animation.*;
-import mdlaf.utils.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+
 
 /**
  *
@@ -49,13 +51,32 @@ class Tela {
         //panel1
         panel.setBounds(0, 0, 200, 400);
 
-        Color darkBlue = new Color(55, 71, 79);
-        panel.setBackground(darkBlue);
+        Color darky = new Color(84, 110, 122);
+        panel.setBackground(darky);
         panel.setLayout(null);
 
         jBtnCadProd.setBounds(20, 50, 160, 60);
+        Color btn = new Color(130, 217, 255);
+        Color bord = new Color(63, 81, 181);
+        jBtnCadProd.setBackground(btn);
+        jBtnCadProd.setForeground(Color.black);
+        Border line = new LineBorder(bord);
+        Border margin = new EmptyBorder(15, 25, 15, 25);
+        Border compound = new CompoundBorder(line, margin);
+        jBtnCadProd.setBorder(compound);
+        jBtnCadProd.setFocusPainted(false);
+
         jBtnConProd.setBounds(20, 150, 160, 60);
+        jBtnConProd.setBackground(btn);
+        jBtnConProd.setForeground(Color.black);
+        jBtnConProd.setBorder(compound);
+        jBtnConProd.setFocusPainted(false);
+
         jBtnSair.setBounds(60, 250, 80, 40);
+        jBtnSair.setBackground(btn);
+        jBtnSair.setForeground(Color.black);
+        jBtnSair.setBorder(compound);
+        jBtnSair.setFocusPainted(false);
 
         panel.add(jBtnCadProd);
         panel.add(jBtnConProd);
@@ -64,11 +85,17 @@ class Tela {
         //panel2
         panel2.setBounds(200, 0, 400, 400);
 
-        Color dark = new Color(33, 33, 33);
-        panel2.setBackground(dark);
+        Color lightBlue = new Color(179, 229, 252);
+        panel2.setBackground(lightBlue);
         panel2.setLayout(null);
 
-        GridBagLayout layout = new GridBagLayout();
+        ImageIcon image = new ImageIcon("/home/pixel/NetBeansProjects/TrabalhoLPC/src/img/warehouse.png");
+
+        JLabel imagelabel = new JLabel(image);
+        imagelabel.setBounds(72, 35, 256, 256);
+        imagelabel.setForeground(Color.white);
+        panel2.add(imagelabel);
+
         container.setLayout(null);
 
         container.add(panel);
