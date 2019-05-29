@@ -39,6 +39,7 @@ public class ConsultaProduto extends JFrame {
         Border compound = new CompoundBorder(line, margin);
 
         t1 = new JTextArea(15, 25);
+        JScrollPane scroll = new JScrollPane(t1);
 
         fechar = new JButton("Fechar");
         fechar.setBackground(btnRed);
@@ -74,9 +75,15 @@ public class ConsultaProduto extends JFrame {
         BotCarregarDados.addActionListener(new Proc());
         Limpar.addActionListener(new TrataBotaoLimpar());
 
+        t1.setEditable(false);
+
         c.add(lNomeProd);
         c.add(jTxtValorVenda);
+        c.add(jTxtValorVenda);
+
+        scroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         c.add(t1);
+        c.add(scroll);
 
         c.add(Limpar);
         c.add(BotCarregarDados);
