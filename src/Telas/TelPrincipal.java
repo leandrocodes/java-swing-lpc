@@ -56,6 +56,7 @@ class Tela {
 
         jBtnCadProd.setBounds(20, 50, 160, 60);
         Color btn = new Color(179, 229, 252);
+        Color btnRed = new Color(229, 57, 53);
         Color bord = new Color(63, 81, 181);
         jBtnCadProd.setBackground(btn);
         jBtnCadProd.setForeground(Color.black);
@@ -72,8 +73,8 @@ class Tela {
         jBtnConProd.setFocusPainted(false);
 
         jBtnSair.setBounds(60, 250, 80, 40);
-        jBtnSair.setBackground(btn);
-        jBtnSair.setForeground(Color.black);
+        jBtnSair.setBackground(btnRed);
+        jBtnSair.setForeground(Color.white);
         jBtnSair.setBorder(compound);
         jBtnSair.setFocusPainted(false);
 

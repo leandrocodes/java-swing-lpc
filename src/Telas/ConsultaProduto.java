@@ -9,6 +9,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -16,36 +20,67 @@ import java.sql.*;
  */
 public class ConsultaProduto extends JFrame {
 
-    JTextArea t1 = new JTextArea(15, 25);
-    JButton Fechar = new JButton("Fechar");
-    JButton BotCarregarDados = new JButton("Carregar Dados");
-    JButton Limpar = new JButton("Limpar");
+    JTextArea t1;
+    JButton fechar, BotCarregarDados, Limpar;
+    JLabel lNomeProd;
+    JTextField jTxtValorVenda;
 
-    JLabel lNomeProd = new JLabel("Valor de Venda:");
-    JTextField jTxtValorVenda = new JTextField(10);
-
-    String url = "jdbc:postgresql://localhost:5432/mercadinho";
-    String driver = "org.postgresql.Driver";
-    String login = "postgres";
-    String passwd = "root";
     Connection conexao = null;
 
     ConsultaProduto() {
+
+        Color btn = new Color(76, 175, 80);
+        Color lightBlue = new Color(179, 229, 252);
+        Color btnRed = new Color(229, 57, 53);
+        Color btnOrange = new Color(255, 112, 67);
+        Color bord = new Color(0, 150, 136);
+        Border line = new LineBorder(bord);
+        Border margin = new EmptyBorder(15, 25, 15, 25);
+        Border compound = new CompoundBorder(line, margin);
+
+        t1 = new JTextArea(15, 25);
+
+        fechar = new JButton("Fechar");
+        fechar.setBackground(btnRed);
+        fechar.setForeground(Color.white);
+        fechar.setBorder(compound);
+
+        BotCarregarDados = new JButton("Carregar Dados");
+        BotCarregarDados.setBackground(btn);
+        BotCarregarDados.setForeground(Color.black);
+        BotCarregarDados.setBorder(compound);
+
+        Limpar = new JButton("Limpar");
+        Limpar.setForeground(Color.black);
+        Limpar.setBackground(btnOrange);
+        Limpar.setBorder(compound);
+
+        lNomeProd = new JLabel("Valor de Venda:");
+        jTxtValorVenda = new JTextField(10);
+
+        String url = "jdbc:postgresql://localhost:5432/mercadinho";
+        String driver = "org.postgresql.Driver";
+        String login = "postgres";
+        String passwd = "root";
+
         Container c = getContentPane();
+
         FlowLayout layout = new FlowLayout();
         c.setLayout(layout);
+        c.setBackground(lightBlue);
         layout.setAlignment(FlowLayout.CENTER);
 
-        Fechar.addActionListener(new TrataBotaoFechar());
+        fechar.addActionListener(new TrataBotaoFechar());
         BotCarregarDados.addActionListener(new Proc());
         Limpar.addActionListener(new TrataBotaoLimpar());
 
         c.add(lNomeProd);
         c.add(jTxtValorVenda);
         c.add(t1);
+
         c.add(Limpar);
         c.add(BotCarregarDados);
-        c.add(Fechar);
+        c.add(fechar);
 
         setTitle("Consulta de Produtos");
         setSize(350, 500);

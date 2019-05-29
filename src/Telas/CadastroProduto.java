@@ -10,6 +10,10 @@ import java.awt.event.*;
 import java.io.*;
 import java.sql.*;
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
 import mdlaf.MaterialLookAndFeel;
 
 /**
@@ -20,6 +24,7 @@ public class CadastroProduto extends JFrame {
 
     private JLabel l1, l2, l3, l4, l5, l6, l7;
     private JTextField t1, t2, t3, t4, t5, t6, t7;
+
     private JButton b1, b2, b3, b4;
 
     public CadastroProduto() {
@@ -45,14 +50,31 @@ public class CadastroProduto extends JFrame {
         t6 = new JTextField(10);
         t7 = new JTextField(10);
 
+        Color btn = new Color(76,175,80);
+        Color btnRed = new Color(229, 57, 53);
+        Color bord = new Color(0,150,136);
+        Border line = new LineBorder(bord);
+        Border margin = new EmptyBorder(15, 25, 15, 25);
+        Border compound = new CompoundBorder(line, margin);
+        
         b1 = new JButton("Cadastrar");
+        b1.setBackground(btn);
+        b1.setForeground(Color.black);
+        b1.setBorder(compound);
+        b1.setFocusPainted(false);
+        
         b2 = new JButton("Fechar");
+        b2.setBackground(btnRed);
+        b2.setForeground(Color.white);
+        b2.setBorder(compound);
+        b2.setFocusPainted(false);
+        
         b1.addActionListener(new Evento());
         b2.addActionListener(new Evento());
 
         Container frame = getContentPane();
         JPanel panel = new JPanel();
-        
+
         panel.setLayout(new GridLayout(8, 2));
         panel.setBounds(0, 0, 500, 300);
         Color lightBlue = new Color(179, 229, 252);
@@ -83,7 +105,7 @@ public class CadastroProduto extends JFrame {
         panel.add(b2);
 
         frame.add(panel);
-        
+
         setSize(500, 300);
         setTitle("Cadastro de Produtos");
         setLocationRelativeTo(null);
@@ -146,7 +168,7 @@ public class CadastroProduto extends JFrame {
                  */
                 int x = JOptionPane.showConfirmDialog(null, "Deseja fechar a janela?");
                 if (x == JOptionPane.YES_OPTION) {
-                    JOptionPane.showMessageDialog(null, "Fechando a Janela de Cadastro de Funcionario");
+                    JOptionPane.showMessageDialog(null, "Fechando a Janela de Cadastro de Produtos");
                     dispose();
                 }
             }
